@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 
 public class HomeWork3Part2 {
     public static void main (String args[]) {
@@ -10,11 +9,10 @@ public class HomeWork3Part2 {
         add(phonebook,"Сидоров", "9304005060");
         add(phonebook,"Князев", "9405006070");
         add(phonebook,"Романов", "9506007080");
-        for (int i=0;i< phonebook.size();i++){
-            String s1=phonebook.get(i).family;
-            String s2=phonebook.get(i).number;
-            System.out.println(s1 + s2);
-        }
+        add(phonebook,"Романов", "9506007080");
+        add(phonebook,"Сидоров", "9506991122");
+        add(phonebook,"Сидоров", "9210607181");
+        get(phonebook,"Сидоров");
 
     }
 
@@ -23,4 +21,13 @@ public class HomeWork3Part2 {
         ar.add(record);
     }
 
+    public static void get(ArrayList ar, String family){
+        Iterator<PhoneBook> iter=ar.iterator();
+        while (iter.hasNext()){
+            PhoneBook phoneBook = iter.next();
+            if (family.equalsIgnoreCase(phoneBook.family)){
+                System.out.println(phoneBook.family + " " + phoneBook.number);
+            }
+        }
+    }
 }
